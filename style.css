@@ -17,6 +17,10 @@ padding:10px;
 margin:5px;
 }
 
+button{
+cursor:pointer;
+}
+
 .summary{
 margin:20px;
 }
@@ -37,4 +41,11 @@ padding:10px;
 td{
 padding:10px;
 border:1px solid #ddd;
+}
+
+.deleteBtn{
+background:red;
+color:white;
+border:none;
+padding:5px 10px;
 }
