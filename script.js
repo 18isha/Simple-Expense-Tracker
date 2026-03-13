@@ -23,6 +23,24 @@ displayExpenses();
 document.getElementById("amount").value="";
 }
 
+function deleteExpense(index){
+
+expenses.splice(index,1);
+
+localStorage.setItem("expenses",JSON.stringify(expenses));
+
+displayExpenses();
+}
+
+function clearAll(){
+
+expenses = [];
+
+localStorage.removeItem("expenses");
+
+displayExpenses();
+}
+
 function displayExpenses(){
 
 let table = document.getElementById("tableBody");
@@ -31,12 +49,13 @@ table.innerHTML="";
 let income = 0;
 let expense = 0;
 
-expenses.forEach(e=>{
+expenses.forEach((e,index)=>{
 
 let row = `<tr>
 <td>${e.type}</td>
 <td>${e.category}</td>
 <td>${e.amount}</td>
+<td><button class="deleteBtn" onclick="deleteExpense(${index})">Delete</button></td>
 </tr>`;
 
 table.innerHTML += row;
